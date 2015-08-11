@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>146DD121-E299-4A5F-89BE-3C0C5185B74F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>LearningCalculator</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C976CDB907143EC8ED1176078E1615CE2238714D</key>
+		<string>https://github.com/buzwells/iOS-stanford-learning-calculator.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>LearningCalculator.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C976CDB907143EC8ED1176078E1615CE2238714D</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/buzwells/iOS-stanford-learning-calculator.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C976CDB907143EC8ED1176078E1615CE2238714D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C976CDB907143EC8ED1176078E1615CE2238714D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iOS-stanford-learning-calculator</string>
+		</dict>
+	</array>
+</dict>
+</plist>

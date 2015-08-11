@@ -11,13 +11,16 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var calculationResult: UILabel!
     
+    // true if the user has started entering a number
+    var dataEntryInProgress : Bool = false
+    
     @IBAction func numberButtonClicked(sender: UIButton) {
         println(sender.currentTitle!)
-        if(calculationResult.text == "0") {
-            calculationResult.text = sender.currentTitle!
-            
-        } else {
+        if(dataEntryInProgress) {
             calculationResult.text = calculationResult.text! + sender.currentTitle!
+        } else {
+            calculationResult.text = sender.currentTitle!
+            dataEntryInProgress = true
         }
     }
 }
