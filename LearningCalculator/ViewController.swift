@@ -17,14 +17,27 @@ class ViewController: UIViewController {
     
     var operands = Array<Double>()
     
+    let mathConstants = ["π": M_PI]
+    
     @IBAction func numberButtonClicked(sender: UIButton) {
         let digit = sender.currentTitle!
         if(dataEntryInProgress) {
-            calculationResult.text = calculationResult.text! + digit
+            if (NSNumberFormatter().numberFromString(calculationResult.text! + digit) != nil) {
+                calculationResult.text = calculationResult.text! + digit
+            }
         } else {
             calculationResult.text = digit
             dataEntryInProgress = true
         }
+    }
+    
+    @IBAction func addConstantOperand(sender: UIButton) {
+        let mathKey = sender.currentTitle!
+        if dataEntryInProgress {
+            enter()
+        }
+        displayValue = mathConstants[mathKey]!
+        enter()
     }
     
     @IBAction func operate(sender: UIButton) {
@@ -38,6 +51,8 @@ class ViewController: UIViewController {
             case "+": performOperation { $0 + $1 }
             case "−": performOperation { $1 - $0 }
             case "√": performSingleOperation { sqrt($0) }
+            case "sin": performSingleOperation { sin($0) }
+            case "cos": performSingleOperation { cos($0) }
             default: break
         }
     }
