@@ -15,9 +15,9 @@ class ViewController: UIViewController {
     // true if the user has started entering a number
     var dataEntryInProgress = false
     
-    var operands = Array<Double>()
-    
     let mathConstants = ["π": M_PI]
+    
+    private var brain = CalculatorBrain()
     
     @IBAction func numberButtonClicked(sender: UIButton) {
         let digit = sender.currentTitle!
@@ -41,46 +41,23 @@ class ViewController: UIViewController {
     }
     
     @IBAction func operate(sender: UIButton) {
-        let operation = sender.currentTitle!
         if dataEntryInProgress {
             enter()
         }
-        switch operation {
-            case "×": performOperation { $0 * $1 }
-            case "÷": performOperation { $1 / $0 }
-            case "+": performOperation { $0 + $1 }
-            case "−": performOperation { $1 - $0 }
-            case "√": performSingleOperation { sqrt($0) }
-            case "sin": performSingleOperation { sin($0) }
-            case "cos": performSingleOperation { cos($0) }
-            default: break
-        }
-    }
-    
-    func performOperation(operation: (Double, Double ) -> Double) {
-        if operands.count > 1 {
-            displayValue = operation(operands.removeLast(), operands.removeLast())
-            enter()
-        }
-    }
-    
-    /* the lecture tried to demonstrate that Swift tolerates 
-       methods with the same name and return value but a different
-       number of args, but new compiler issues an error b/c this
-       class inherits from an Obj-C class, which is not so tolerant.
-       Makes this technique unsafe - so changed name of method.
-     */
-    func performSingleOperation(operation: Double -> Double) {
-        if operands.count > 0 {
-            displayValue = operation(operands.removeLast())
-            enter()
+        if let operation = sender.currentTitle {
+            if let result = brain.performOperation(operation) {
+                displayValue = result
+            }
         }
     }
     
     @IBAction func enter() {
         dataEntryInProgress = false
-        operands.append(displayValue)
-        println(operands)
+        if let result = brain.pushOperand(displayValue) {
+            displayValue = result
+        } else {
+            // add error handling, which also involves converting displayValue to an Optional
+        }
     }
     
     var displayValue: Double {
